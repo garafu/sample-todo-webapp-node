@@ -29,7 +29,7 @@
             <% for (let item of tasks) { %>
             <tr>
                 <td><%= item.Title %></td>
-                <td><%= DateTime.fromJSDate(item.Deadline).toFormat('yyyy/MM/dd') %></td>
+                <td><%= item.Deadline ? DateTime.fromJSDate(item.Deadline).toFormat('yyyy/MM/dd') : ''%></td>
                 <td><%= item.Priority %></td>
                 <td><%= item.Status %></td>
                 <td>

@@ -27,7 +27,7 @@ class Tasks {
   createTask = async (userId, task) => {
     const client = new MySqlClient();
 
-    task.Deadline = task.deadline ? task.deadline : 'NULL';
+    task.deadline = task.deadline ? task.deadline : null;
 
     await client.executeQuery(
       `INSERT INTO Tasks (UserId, Title, Description, Deadline, Priority, Status) VALUES (:userId, :title, :description, :deadline, :priority, :status)`,
@@ -47,7 +47,7 @@ class Tasks {
   updateTask = async (taskId, task) => {
     const client = new MySqlClient();
 
-    task.Deadline = task.deadline ? task.deadline : 'NULL';
+    task.deadline = task.deadline ? task.deadline : null;
 
     await client.executeQuery(
       `UPDATE Tasks SET Title = :title, Description = :description, Deadline = :deadline, Priority = :priority, Status = :status WHERE TaskId = :taskId`,
