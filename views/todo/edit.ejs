@@ -29,6 +29,7 @@
         <div class="mb-3">
           <label for="priority">優先度</label>
           <select class="form-control" id="priority" name="priority">
+            <option <%= item.Priority === '' ? 'selected' : ''%>></option>
             <option <%= item.Priority === '高' ? 'selected' : ''%>>高</option>
             <option <%= item.Priority === '中' ? 'selected' : ''%>>中</option>
             <option <%= item.Priority === '低' ? 'selected' : ''%>>低</option>
@@ -37,6 +38,7 @@
         <div class="mb-3">
           <label for="status">ステータス</label>
           <select class="form-control" id="status" name="status">
+            <option <%= item.Status === '' ? 'selected' : ''%>></option>
             <option <%= item.Status === '未着手' ? 'selected' : ''%>>未着手</option>
             <option <%= item.Status === '着手中' ? 'selected' : ''%>>着手中</option>
             <option <%= item.Status === '完了' ? 'selected' : ''%>>完了</option>

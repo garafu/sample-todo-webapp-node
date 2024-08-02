@@ -12,7 +12,7 @@
 
   <div b-bddmc6yalx class="container">
     <main role="main" class="pb-3">
-      <form method="POST" action="/ToDo/Create">
+      <form method="POST" action="/todo/create">
         <div class="mb-3">
           <label for="title">件名 <span class="text-danger">*</span></label>
           <input type="text" class="form-control" id="title" name="title" placeholder="件名を入力してください">
@@ -28,6 +28,7 @@
         <div class="mb-3">
           <label for="priority">優先度</label>
           <select class="form-control" id="priority" name="priority">
+            <option></option>
             <option>高</option>
             <option>中</option>
             <option>低</option>
@@ -36,6 +37,7 @@
         <div class="mb-3">
           <label for="status">ステータス</label>
           <select class="form-control" id="status" name="status">
+            <option></option>
             <option>未着手</option>
             <option>着手中</option>
             <option>完了</option>
