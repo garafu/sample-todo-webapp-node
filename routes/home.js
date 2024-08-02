@@ -1,6 +1,6 @@
 const route = require('express').Router();
 
-route.get(['/', '/index'], (req, res) => {
+route.get('/index', (req, res) => {
   res.render('home/index');
 });
 
