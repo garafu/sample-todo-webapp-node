@@ -24,6 +24,12 @@ app.get('/', (req, res) => {
 app.use('/home', require('./routes/home'));
 app.use('/todo', require('./routes/todo'));
 
+// Error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render('error/500', err);
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Now listening on: http://localhost:${PORT}`);
