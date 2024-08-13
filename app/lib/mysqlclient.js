@@ -1,4 +1,6 @@
 const mysql = require('mysql2/promise');
+const path = require('path');
+const fs = require('fs');
 
 class MySqlClient {
   _config = null;
@@ -11,7 +13,11 @@ class MySqlClient {
       password: process.env.MYSQL_PASSWORD || 'root',
       database: process.env.MYSQL_DATABASE || 'todo',
       connectionLimit: 10,
-      namedPlaceholders: true
+      namedPlaceholders: true,
+      ssl: (process.env.MYSQL_SSL || "").toLocaleLowerCase() === 'true' ? {
+        rejectUnauthorized: true,
+        ca: fs.readFileSync(path.join(__dirname, './certs/azure-ca.pem'), 'utf8'),
+      } : undefined
     };
 
     this._pool = mysql.createPool(this._config);
