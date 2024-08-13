@@ -1,4 +1,6 @@
-﻿-- ユーザーテーブルにサンプルユーザーを追加
+﻿USE todo;
+
+-- ユーザーテーブルにサンプルユーザーを追加
 INSERT INTO Users (Username, EmailAddress, Password, OtherUserInfo)
 VALUES ('SampleUser', 'sampleuser@example.com', 'hashedpassword', 'その他のユーザー情報');
 
