@@ -1,0 +1,6 @@
+project        = ""
+environment    = ""
+container      = ""
+mysql_database = ""
+mysql_username = ""
+mysql_password = ""

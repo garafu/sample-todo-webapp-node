@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.0.0"
+      version = ">=3.115"
     }
   }
 }
@@ -25,7 +25,19 @@ variable "environment" {
   type = string
 }
 
-variable "domain" {
+variable "container" {
+  type = string
+}
+
+variable "mysql_username" {
+  type = string
+}
+
+variable "mysql_password" {
+  type = string
+}
+
+variable "mysql_database" {
   type = string
 }
 
