@@ -4,7 +4,8 @@ COPY . /app
 
 WORKDIR /app
 
-RUN /app/build.sh
+RUN chmod +x /app/build.sh \
+    && /app/build.sh
 
 EXPOSE 3000
 

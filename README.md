@@ -49,3 +49,14 @@
     ```
     npm start
     ```
+
+## GitHub Actions へのシークレット設定
+
+```
+IMAGE_NAME
+ACR_SERVER
+ACR_USERNAME
+ACR_PASSWORD
+WEBAPP_NAME
+WEBAPP_PUBLISH_PROFILE
+```
