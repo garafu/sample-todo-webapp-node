@@ -33,10 +33,9 @@ jobs:
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
-          context: ./app
+          file: ./app/Dockerfile
           push: true
           tags: ${{ secrets.ACR_SERVER }}/${{ secrets.IMAGE_NAME }}:${{ github.sha }}
-          file: ./Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
