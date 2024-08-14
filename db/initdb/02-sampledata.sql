@@ -1,4 +1,5 @@
 ﻿USE todo;
+SET CHARSET UTF8;
 
 -- ユーザーテーブルにサンプルユーザーを追加
 INSERT INTO Users (Username, EmailAddress, Password, OtherUserInfo)
