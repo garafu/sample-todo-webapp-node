@@ -29,5 +29,12 @@ resource "azurerm_linux_web_app" "app" {
     "MYSQL_USER"     = var.mysql_username
     "MYSQL_PASSWORD" = var.mysql_password
     "MYSQL_DATABASE" = var.mysql_database
+    "MYSQL_SSL"      = "true"
+  }
+
+  lifecycle {
+    ignore_changes = [
+      site_config[0].application_stack,
+    ]
   }
 }
