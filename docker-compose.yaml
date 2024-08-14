@@ -5,13 +5,15 @@ services:
       - 'mysqld'
       - '--character-set-server=utf8mb4'
       - '--collation-server=utf8mb4_unicode_ci'
+    volumes:
+      - ./db/initdb:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: todo
   webapp:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ./app
+      dockerfile: ./Dockerfile
     command: npm start
     ports:
       - "3000:3000"
