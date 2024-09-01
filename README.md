@@ -33,9 +33,11 @@
 
         ```
         MYSQL_HOST=<YOUR_HOST_NAME>
+        MYSQL_PORT=3306
         MYSQL_USER=<USERNAME>
         MSYQL_PASSWORD=<PASSWORD>
-        MYSQL_DATABASE=<DATABASE_NAME>
+        MYSQL_DATABASE=todo
+        MYSQL_SSL=[true|false]    # ローカル実行はfalse, Azure上で実行はtrue
         ```
 
     1. パッケージのインストール
