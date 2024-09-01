@@ -2,6 +2,25 @@ const mysql = require('mysql2/promise');
 const path = require('path');
 const fs = require('fs');
 
+var getCert = function (target = '') {
+  var key = target.toLocaleLowerCase() === 'true' ? 'azure' : '';
+
+  switch (key) {
+    case 'azure':
+      return {
+        rejectUnauthorized: true,
+        ca: fs.readFileSync(path.join(__dirname, './certs/azure-ca.pem'), 'utf8'),
+      };
+    case 'aws':
+      return {
+        rejectUnauthorized: true,
+        ca: fs.readFileSync(path.join(__dirname, './certs/aws-ca.pem'), 'utf8'),
+      };
+    default:
+      return undefined;
+  }
+}
+
 class MySqlClient {
   _config = null;
   _pool = null;
@@ -14,10 +33,7 @@ class MySqlClient {
       database: process.env.MYSQL_DATABASE || 'todo',
       connectionLimit: 10,
       namedPlaceholders: true,
-      ssl: (process.env.MYSQL_SSL || "").toLocaleLowerCase() === 'true' ? {
-        rejectUnauthorized: true,
-        ca: fs.readFileSync(path.join(__dirname, './certs/azure-ca.pem'), 'utf8'),
-      } : undefined
+      ssl: getCert(process.env.MYSQL_SSL) || undefined
     };
 
     this._pool = mysql.createPool(this._config);
